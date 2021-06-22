@@ -95,10 +95,6 @@ button#submit {
   border: none;
 }
 
-input#binary {
-  width: 100%;
-}
-
 span#converted-number {
   min-width: 150px;
 }
@@ -113,6 +109,7 @@ input#binary, span#converted-number {
   text-align: center;
   outline: none;
   min-height: 45px;
+  width: 70vw;
 }
 
 body, button#submit {
@@ -133,11 +130,23 @@ span#result-text:hover {
   cursor: copy;
 }
 
+@media (min-width: 500px) {
+  input#binary, span#converted-number {
+    width: 45vw;
+  }
+}
+
+@media (min-width: 900px) {
+  input#binary, span#converted-number {
+    width: 35vw;
+  }
+}
+
 @media(min-width: 1440px) {
   input#binary, span#converted-number {
     height: 40px;
     border-radius: 30px;
-    width: 200px;
+    width: 25vw;
   }
   span#input-text, input#binary, button#submit, span#result-text, span#converted-number {
     font-size: 30px;
