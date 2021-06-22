@@ -1,0 +1,14 @@
+.tooltip {
+  position: relative;
+  background: white;
+  border-radius: 20px;
+  padding: 5px 10px;
+  text-align: center;
+  color: green;
+  display: none;
+  min-height: 30px;
+}
+
+.tooltip > .tooltip-text {
+  line-height: 30px;
+}
