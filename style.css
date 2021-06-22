@@ -1,0 +1,25 @@
+div#container, div.row {
+  display: flex;
+  align-items: center;
+  flex-direction: column-reverse;
+}
+
+div.row {
+  margin: 5px;
+}
+
+.linkwrap {
+  position: relative;
+  display: inline-block;
+}
+
+.blocker {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.linkwrap iframe {
+  z-index: 2;
+}
