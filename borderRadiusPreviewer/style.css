@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@400;700&display=swap');
+:root {
+  --size-logo: 35px;
+  --bg-color: rgb(10, 5, 73);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Baloo Tammudu 2', cursive;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+header, footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+footer {
+  position: absolute;
+  padding: 10px 10px 0px 10px;
+  bottom: 0px;
+  width: 100%;
+  height: 100px;
+}
+
+ul li {
+  list-style: none;
+}
+
+span, input {
+  text-align: center;
+  margin: 5px;
+}
+
+main, form, label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+button#submit {
+  border: none;
+  margin-top: 30px;
+  padding: 5px;
+  font-family: inherit;
+  font-size: 20px;
+  height: 45px;
+  width: 95%;
+  border-radius: 10px;
+  background-color: rgb(2, 2, 59);
+  color: white;
+  transition: background-color .5s;
+}
+
+button#submit:hover {
+  background-color: rgb(0, 0, 31);
+}
+
+div#container {
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--bg-color);
+  color: white;
+}
+
+span#logo {
+  font-size: var(--size-logo);
+  line-height: 35px;
+  margin-top: 10px;
+}
+
+main div#previewer {
+  width: 200px;
+  height: 200px;
+  margin: 15px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  border-radius: 10px;
+}
+
+span#copy-icon {
+  margin-top: 25px;
+  cursor: pointer;
+}
+
+span.input-text {
+  font-size: 20px;
+  line-height: 25px;
+  margin-top: 20px;
+  margin-bottom: 2px;
+}
+
+div#previewer {
+  background-color: rgb(52, 206, 233);
+}
+
+span#tooltip-copy {
+  display: none;
+  margin-top: -5px;
+}
+
+@media (max-width: 500px) {
+  :root {
+    --size-logo: 30px;
+  }
+}
+
+@media (max-width: 400px) {
+  :root {
+    --size-logo: 25px;
+  }
+  nav {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-height: 840px), screen and (max-width:300px) {
+  span.input-text {
+    font-size: 20px;
+    line-height: 15px;
+    margin-top: 10px;
+    margin-bottom: 2px;
+  }
+
+  footer {
+    position: inherit;
+  }
+}
+
+@media (max-height: 753px) {
+  div#container {
+    height: 100%;
+  }
+}

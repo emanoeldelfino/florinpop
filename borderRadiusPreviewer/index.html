@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <title>Border Radius Previewer</title>
+  </head>
+  <body>
+    <div id="container">
+      <header>
+        <nav>
+          <span id="logo" class="noselect">Border Radius Previewer</span>
+        </nav>
+      </header>
+      <main>
+        <div id="previewer"></div>
+        <form action="javascript:void(0);">
+          <label for="top-right">
+            <span class="input-text noselect">Top Right</span>
+            <input type="text" id="top-right" value="10px"/>
+          </label>
+          <label for="down-right">
+            <span class="input-text noselect">Down Right</span>
+            <input type="text" id="down-right" value="10px"/>
+          </label>
+          <label for="down-left">
+            <span class="input-text noselect">Down Left</span>
+            <input type="text" id="down-left" value="10px"/>
+          </label>
+          <label for="top-left">
+            <span class="input-text noselect">Top Left</span>
+            <input type="text" id="top-left" value="10px"/>
+          </label>
+          <button type="submit" id="submit">Submit</button>
+        </form>
+        <span class="material-icons" id="copy-icon"> content_copy </span>
+        <span id="tooltip-copy">
+          Copied to clipboard!
+        </span>
+      </main>
+      <footer class="footer">
+        <ul class="nav-links">
+          <li>
+            <a href="https://github.com/emanoeldelfino/BorderRadiusPreviewer"
+              ><img
+                src="images/GitHub-Mark-Light-32px.png"
+                alt="GitHub"
+                id="github"
+            /></a>
+          </li>
+        </ul>
+        <span class="noselect">&copy; Delfino</span>
+      </footer>
+      <script src="app.js"></script>
+    </div>
+  </body>
+</html>
