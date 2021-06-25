@@ -7,6 +7,9 @@ sliderElem.addEventListener("change", () => {
   intensity = sliderElem.value;
 });
 
+let lights = [1, 2, 3, 4, 5, 6, 7];
+
+
 playPauseButton.addEventListener("click", (evt) => {
   const [currentClass, replaceClass] = evt.target.className.includes("play")
     ? ["play", "pause"]
@@ -17,9 +20,10 @@ playPauseButton.addEventListener("click", (evt) => {
   );
 
   if (currentClass === "play") {
+    console.log(lights);
     (function blinkLights() {
-      for (let i = 1; i <= 7; i++) {
-        let lightElem = document.querySelector(`div#light${i}`);
+      lights.forEach((light, index) => {
+        let lightElem = document.querySelector(`div#light${light}`);
         // 0 0 50px color
         setTimeout(() => {
           lightElem.setAttribute(
@@ -33,9 +37,10 @@ playPauseButton.addEventListener("click", (evt) => {
               "style",
               "filter:brightness(20%); box-shadow: none;"
             );
+            lights = lights.slice(1).concat(lights[0]);
           }, intensity);
-        }, intensity * i);
-      }
+        }, intensity * index);
+      })
       setTimeout(blinkLights, 7 * intensity);
     })();
   } else {
