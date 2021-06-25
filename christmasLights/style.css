@@ -1,0 +1,112 @@
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+div#container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(43, 43, 53);
+  justify-content: center; /* horizontal alignment */
+  align-items: center; /* vertical alignment */
+}
+
+div#lights {
+  display: flex;
+  flex-direction: row;
+}
+
+
+div.light {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  border-radius: 50%;
+  filter: brightness(20%);
+}
+
+div#light1 {
+  background-color: red;
+}
+
+div#light2 {
+  background-color: yellow;
+}
+
+div#light3 {
+  background-color: green;
+}
+
+div#light4 {
+  background-color: purple;
+}
+
+div#light5 {
+  background-color: orange;
+}
+
+div#light6 {
+  background-color: blue;
+}
+
+div#light7 {
+  background-color: cyan;
+}
+
+div#buttons {
+  position: absolute;
+  width: 200px;
+  bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+i#play-pause-button {
+  font-size: 45px;
+  color: white;
+  transition: color .2s;
+}
+
+input#slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 2px;
+}
+
+@media (max-width: 850px) {
+
+  div#lights {
+    display: flex;
+    flex-direction: column;
+  }
+
+  div.light {
+    width: 90px;
+    height: 90px;
+  }
+
+  i#play-pause-button {
+    position: initial;
+    margin: 20px 0px;
+  }
+  
+  div#buttons {
+    position: static;
+  }
+}
+
+@media (max-height: 861px) {
+  div#container {
+    height: 100%;
+  }
+}
