@@ -6,7 +6,8 @@ let result = 0;
 
 buttonsElems.forEach((buttonElem) => {
   buttonElem.addEventListener("click", () => {
-    resultSpan.innerHTML = resultSpan.innerHTML !== "ERR" ? resultSpan.innerHTML : "";
+    resultSpan.innerHTML =
+      resultSpan.innerHTML !== "ERR" ? resultSpan.innerHTML : "";
     let button = buttonElem.textContent;
     let numsOperations = resultSpan.textContent.match(re) || [];
     numsOperations.forEach((numOperation, index) => {
@@ -14,9 +15,7 @@ buttonsElems.forEach((buttonElem) => {
       let next = numsOperations[index + 1];
       if (numsOperations.length - 1 !== index) {
         if (isNumber(current) && isNumber(next)) {
-          if (isPositive(current) || isPositive(next)) {
-            numsOperations.splice(index + 1, 0, "+");
-          }
+          numsOperations.splice(index + 1, 0, "+");
         }
       }
     });
@@ -34,7 +33,7 @@ buttonsElems.forEach((buttonElem) => {
     } else if (button === "C") {
       resultSpan.innerHTML = resultSpan.textContent.slice(0, -1);
     } else if (button === "AC") {
-      resultSpan.innerHTML = "";
+      resultSpan.innerHTML = "0";
     } else if (button === "=") {
       replace(numsOperations, ["÷", "x", "^"], ["/", "*", "**"]);
       if (
@@ -71,7 +70,10 @@ buttonsElems.forEach((buttonElem) => {
         });
         decimalPlacesQt =
           decimalPlaces(result / 1) >= 6 ? 6 : decimalPlaces(result / 1);
-        resultSpan.innerHTML = resultSpan.innerHTML !== "ERR" ? Number(Number(result).toFixed(decimalPlacesQt)) : "ERR";
+        resultSpan.innerHTML =
+          resultSpan.innerHTML !== "ERR"
+            ? Number(Number(result).toFixed(decimalPlacesQt))
+            : "ERR";
       }
     } else if (button === ".") {
       if (
@@ -96,6 +98,7 @@ buttonsElems.forEach((buttonElem) => {
           start = -String(Math.abs(lastValue)).length - 1;
           replaceSign = isPositive(lastValue) ? "-" : "";
         } else if (beforeLastValue !== "+") {
+          console.log(numsOperations);
           start = -String(Math.abs(lastValue)).length;
           replaceSign = "-";
 
