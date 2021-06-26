@@ -72,12 +72,20 @@ div#light7 {
 
 div#buttons {
   position: absolute;
-  width: 30vw;
+  width: 100vw;
+  padding: 15px;
   bottom: 10px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
+}
+
+div#other-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100vw;
 }
 
 i#play-pause, i#reload {
@@ -99,9 +107,10 @@ input#slider {
   justify-content: center;
   position: relative;
   top: 2px;
+  width: 40px;
 }
 
-@media (max-width: 850px) {
+@media (max-width: 900px), (max-height: 340px) {
   div#lights {
     display: flex;
     flex-direction: column;
@@ -113,12 +122,23 @@ input#slider {
   }
 
   i#play-pause-button {
-    position: initial;
     margin: 20px 0px;
   }
-  
+
   div#buttons {
-    position: static;
+    position: relative;
+  }
+}
+
+@media (min-width: 1050px) {
+  div#other-buttons {
+    width: 70vw;
+  }
+}
+
+@media (max-height: 340px) {
+  div#container {
+    height: auto;
   }
 }
 
