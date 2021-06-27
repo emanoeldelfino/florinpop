@@ -14,48 +14,52 @@
   <body>
     <div id="container">
       <div id="lights">
-        <!-- <svg>
-        <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
-      </svg> -->
-        <label for="light1-color">
-          <div id="light1" class="light"></div>
-          <input type="color" name="light1" id="light1-color" value="#FF0000"/>
-        </label>
-        <label for="light2-color">
-          <div id="light2" class="light"></div>
-          <input type="color" name="light2" id="light2-color" value="#FFFF00"/>
-        </label>
-        <label for="light3-color">
-          <div id="light3" class="light"></div>
-          <input type="color" name="light3" id="light3-color" value="#00FF00"/>
-        </label>
-        <label for="light4-color">
-          <div id="light4" class="light"></div>
-          <input type="color" name="light4" id="light4-color" value="#6A0DAD"/>
-        </label>
-        <label for="light5-color">
-          <div id="light5" class="light"></div>
-          <input type="color" name="light5" id="light5-color" value="#FFA500"/>
-        </label>
-        <label for="light6-color">
-          <div id="light6" class="light"></div>
-          <input type="color" name="light6" id="light6-color" value="#0000FF"/>
-        </label>
-        <label for="light7-color">
-          <div id="light7" class="light"></div>
-          <input type="color" name="light7" id="light7-color" value="#00FFFF" />
-        </label>
+        <div class="row-lights">
+          <div id="light1" class="light">
+            <input type="color" name="light1" id="light1-color" value="#FF0000"/>
+          </div>
+          <div id="light2" class="light">
+            <input type="color" name="light2" id="light2-color" value="#FFFF00"/>
+          </div>
+          <div id="light3" class="light">
+            <input type="color" name="light3" id="light3-color" value="#00FF00"/>
+          </div>
+          <div id="light4" class="light">
+            <input type="color" name="light4" id="light4-color" value="#6A0DAD"/>
+          </div>
+          <div id="light5" class="light">
+            <input type="color" name="light5" id="light5-color" value="#FFA500"/>
+          </div>
+          <div id="light6" class="light">
+            <input type="color" name="light6" id="light6-color" value="#0000FF"/>
+          </div>
+          <div id="light7" class="light">
+            <input type="color" name="light7" id="light7-color" value="#00FFFF" />
+          </div>
+        </div>
       </div>
+
       <div id="buttons">
-        <i class="bi bi-play-fill" id="play-pause"></i>
+        <label for="num-rows">
+          <span>Number of rows</span>
+          <select name="num-rows" id="num-rows">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+          </select>
+        </label>
         <div id="other-buttons">
           <i class="bi bi-arrow-clockwise" id="reload"></i>
+          <i class="bi bi-play-fill" id="play-pause"></i>
           <div id="intensity">
             <label for="intensity-num">
               <span>Intensity</span>
               <input type="number" name="intensity-num" value="500" id="intensity-num">
             </label>
-
             <input type="range" min="100" max="1000" value="500" id="intensity-slider" />
           </div>
         </div>

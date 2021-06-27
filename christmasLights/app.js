@@ -4,8 +4,10 @@ const intensitySlider = document.querySelector("input#intensity-slider");
 const intensityNum = document.querySelector("input#intensity-num");
 
 const colorInputs = document.querySelectorAll("input[type='color']");
-let lightsDefault = Array.from(document.querySelectorAll("label div.light"));
+const lightDivs = document.querySelectorAll("div.light");
+let lightsDefault = Array.from(lightDivs);
 let lights = [...lightsDefault];
+const defaultColors = ["red", "yellow", "green", "purple", "orange","blue", "cyan"]
 
 intensity = intensitySlider.value;
 
@@ -48,6 +50,7 @@ function pauseLights() {
 
 function blinkLights() {
   if (playPauseButton.className.includes("play")) {
+    lights = Array.from(document.getElementsByClassName("light"));
     playPauseButton.className = playPauseButton.className.replace("play", "pause");
     setIntervalFirstNoDelay(() => {
       lights.forEach((lightElem, index) => {
@@ -75,10 +78,12 @@ function blinkLights() {
 }
 
 function resetLights() {
-  lights.forEach((lightElem) => {
+  select.value = 1;
+  updateNumColors();
+  lights.forEach((lightElem, index) => {
     lightElem.setAttribute(
       "style",
-      `background-color: ${lightElem.style.backgroundColor};`
+      `background-color: ${defaultColors[index]};`
     );
   });
   lights = [...lightsDefault];
@@ -87,13 +92,6 @@ function resetLights() {
 reloadButton.addEventListener("click", () => {
   pauseLights();
   resetLights();
-});
-
-colorInputs.forEach((colorInput) => {
-  colorInput.addEventListener("change", (elem) => {
-    const prev = colorInput.previousElementSibling;
-    prev.style.backgroundColor = elem.target.value;
-  });
 });
 
 function toggleLights() {
@@ -120,4 +118,47 @@ playPauseButton.addEventListener("click", toggleLights);
 function setIntervalFirstNoDelay(callback, delay) {
   callback();
   setInterval(callback, delay);
+}
+
+colorInputs.forEach((colorInput) => {
+  const lightDiv = colorInput.parentNode;
+
+  // input color changes div background color
+  colorInput.addEventListener("change", (elem) => {
+    lightDiv.style.backgroundColor = elem.target.value;
+  });
+
+  // div click activates input
+  lightDiv.addEventListener("click", () => {
+    colorInput.click();
+  })
+});
+
+const divLights = document.getElementById("lights");
+const divRowLights = document.getElementById("lights").firstElementChild;
+const cloneDivRowLights = divRowLights.cloneNode(true);
+const select = document.querySelector("select#num-rows");
+
+select.addEventListener("change", updateNumColors);
+
+function updateNumColors() {
+  divLights.innerHTML = "";
+  for (i=1; i <= select.value; i++) {
+    const clone = cloneDivRowLights.cloneNode(true);
+    divLights.appendChild(clone);
+  }
+  colorInputsUpdate = document.querySelectorAll("input[type='color']");
+  colorInputsUpdate.forEach((colorInput) => {
+    const lightDiv = colorInput.parentNode;
+  
+    // input color changes div background color
+    colorInput.addEventListener("change", (elem) => {
+      lightDiv.style.backgroundColor = elem.target.value;
+    });
+  
+    // div click activates input
+    lightDiv.addEventListener("click", () => {
+      colorInput.click();
+    })
+  });
 }

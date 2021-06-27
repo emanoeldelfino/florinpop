@@ -1,3 +1,4 @@
+
 :root {
   --bg-color: rgb(43, 43, 53);
   --bg-color-stronger: rgb(29, 29, 34);
@@ -7,41 +8,34 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: rgb(41, 38, 38);
+}
+
 body, html {
   margin: 0;
   padding: 0;
 }
 
-label input[type="color"] {
-  opacity: 0;
-  position: relative;
-  width: 0;
-  height: 0;
-  pointer-events: none;
-  right: 55px;
-}
-
 div#container {
-  display: flex;
   flex-direction: column;
   height: 100vh;
-  width: 100vw;
-  background-color: var(--bg-color);
-  justify-content: center; /* horizontal alignment */
-  align-items: center; /* vertical alignment */
+  justify-content: space-between;
 }
 
 div#lights {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  height: 84vh;
+  width: 100vw;
+  justify-content: space-around;
+  margin: 15px;
 }
 
 div.light {
   width: 100px;
   height: 100px;
-  margin: 10px;
   border-radius: 50%;
-  filter: brightness(20%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -73,6 +67,37 @@ div#light6 {
 
 div#light7 {
   background-color: cyan;
+}
+
+div.row-lights {
+  display: flex;
+  justify-content: space-around;
+}
+
+div#container, div.row-lights {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+}
+
+input[type="color"] {
+  position: relative;
+  right: 100px;
+  top: 50px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 div#buttons {
@@ -107,7 +132,7 @@ input#intensity-slider, input#intensity-num {
   width: 60px;
 }
 
-input#intensity-num {
+input#intensity-num, select#num-rows {
   text-align: center;
   background-color: var(--bg-color-stronger);
   outline: none;
@@ -115,7 +140,7 @@ input#intensity-num {
   color: white;
 }
 
-div#intensity span {
+div#intensity span, div#buttons label span {
   color: white;
 }
 
@@ -132,52 +157,37 @@ i#reload {
   font-size: 35px;
 }
 
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+label[for="num-rows"] {
+  display: flex;
+  flex-direction: column;
 }
 
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
-}
-
-@media (max-width: 900px), (max-height: 340px) {
-  div#lights {
-    display: flex;
+@media (max-width: 880px) {
+  div.row-lights {
+    width: initial;
+    height: 80vh;
     flex-direction: column;
   }
 
+  div#lights {
+    flex-direction: row;
+  }
+
   div.light {
-    width: 90px;
-    height: 90px;
+    height: 50px;
+    width: 50px;
   }
+}
 
-  i#play-pause-button {
-    margin: 20px 0px;
+@media (max-width: 450px) {
+  div.light {
+    height: 30px;
+    width: 30px;
   }
+}
 
+@media(max-height: 650px) {
   div#buttons {
-    position: relative;
-  }
-}
-
-@media (min-width: 1050px) {
-  div#other-buttons {
-    width: 70vw;
-  }
-}
-
-@media (max-height: 340px) {
-  div#container {
-    height: auto;
-  }
-}
-
-@media (max-height: 988px) and (max-width: 850px) {
-  div#container {
-    height: 100%;
+    position: initial;
   }
 }
