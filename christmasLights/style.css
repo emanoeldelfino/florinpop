@@ -1,3 +1,8 @@
+:root {
+  --bg-color: rgb(43, 43, 53);
+  --bg-color-stronger: rgb(29, 29, 34);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -7,7 +12,7 @@ body, html {
   padding: 0;
 }
 
-label input {
+label input[type="color"] {
   opacity: 0;
   position: relative;
   width: 0;
@@ -21,7 +26,7 @@ div#container {
   flex-direction: column;
   height: 100vh;
   width: 100vw;
-  background-color: rgb(43, 43, 53);
+  background-color: var(--bg-color);
   justify-content: center; /* horizontal alignment */
   align-items: center; /* vertical alignment */
 }
@@ -88,6 +93,32 @@ div#other-buttons {
   width: 100vw;
 }
 
+div#intensity {
+  display: flex;
+  flex-direction: column;
+}
+
+input#intensity-slider, input#intensity-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 2px;
+  width: 60px;
+}
+
+input#intensity-num {
+  text-align: center;
+  background-color: var(--bg-color-stronger);
+  outline: none;
+  border: none;
+  color: white;
+}
+
+div#intensity span {
+  color: white;
+}
+
 i#play-pause, i#reload {
   color: white;
   transition: color .2s;
@@ -101,13 +132,16 @@ i#reload {
   font-size: 35px;
 }
 
-input#slider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  top: 2px;
-  width: 40px;
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 @media (max-width: 900px), (max-height: 340px) {

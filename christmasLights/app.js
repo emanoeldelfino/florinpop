@@ -1,10 +1,37 @@
 const playPauseButton = document.querySelector("i#play-pause");
 const reloadButton = document.querySelector("i#reload");
-const sliderElem = document.querySelector("input#slider");
+const intensitySlider = document.querySelector("input#intensity-slider");
+const intensityNum = document.querySelector("input#intensity-num");
 
 const colorInputs = document.querySelectorAll("input[type='color']");
 let lightsDefault = Array.from(document.querySelectorAll("label div.light"));
 let lights = [...lightsDefault];
+
+intensity = intensitySlider.value;
+
+intensitySlider.addEventListener("change", () => {
+  if (playPauseButton.className.includes("pause")) {
+    pauseLights();
+    intensity = intensitySlider.value;
+    blinkLights();
+  } else {
+    intensity = intensitySlider.value;
+  }
+  intensityNum.value = intensitySlider.value;
+});
+
+intensityNum.addEventListener("keyup", (evt) => {
+  if (evt.key === "Enter") {
+    if (playPauseButton.className.includes("pause")) {
+      pauseLights();
+      intensity = intensityNum.value;
+      blinkLights();
+    } else {
+      intensity = intensityNum.value;
+    }
+    intensitySlider.value = intensityNum.value;
+  }
+});
 
 function pauseLights() {
   if (playPauseButton.className.includes("pause")) {
@@ -67,18 +94,6 @@ colorInputs.forEach((colorInput) => {
     const prev = colorInput.previousElementSibling;
     prev.style.backgroundColor = elem.target.value;
   });
-});
-
-intensity = sliderElem.value;
-sliderElem.addEventListener("change", () => {
-  if (playPauseButton.className.includes("pause")) {
-    pauseLights();
-    intensity = sliderElem.value;
-    console.log(intensity);
-    blinkLights();
-  } else {
-    intensity = sliderElem.value;
-  }
 });
 
 function toggleLights() {

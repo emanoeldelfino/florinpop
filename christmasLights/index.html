@@ -50,7 +50,14 @@
         <i class="bi bi-play-fill" id="play-pause"></i>
         <div id="other-buttons">
           <i class="bi bi-arrow-clockwise" id="reload"></i>
-          <input type="range" min="100" max="1000" value="500" id="slider" />
+          <div id="intensity">
+            <label for="intensity-num">
+              <span>Intensity</span>
+              <input type="number" name="intensity-num" value="500" id="intensity-num">
+            </label>
+
+            <input type="range" min="100" max="1000" value="500" id="intensity-slider" />
+          </div>
         </div>
       </div>
     </div>
