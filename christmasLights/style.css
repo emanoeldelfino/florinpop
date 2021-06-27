@@ -41,31 +41,31 @@ div.light {
   justify-content: center;
 }
 
-div#light1 {
+div.light1 {
   background-color: red;
 }
 
-div#light2 {
+div.light2 {
   background-color: yellow;
 }
 
-div#light3 {
+div.light3 {
   background-color: green;
 }
 
-div#light4 {
+div.light4 {
   background-color: purple;
 }
 
-div#light5 {
+div.light5 {
   background-color: orange;
 }
 
-div#light6 {
+div.light6 {
   background-color: blue;
 }
 
-div#light7 {
+div.light7 {
   background-color: cyan;
 }
 
@@ -188,6 +188,13 @@ label[for="num-rows"] {
 
 @media(max-height: 650px) {
   div#buttons {
+    height: 50vh;
     position: initial;
+  }
+
+  div.light {
+    min-height: 30px;
+    min-width: 30px;
+    margin: 5px;
   }
 }

@@ -7,7 +7,7 @@ const colorInputs = document.querySelectorAll("input[type='color']");
 const lightDivs = document.querySelectorAll("div.light");
 let lightsDefault = Array.from(lightDivs);
 let lights = [...lightsDefault];
-const defaultColors = ["red", "yellow", "green", "purple", "orange","blue", "cyan"]
+const defaultColors = ["red", "yellow", "green", "purple", "orange","blue", "cyan"];
 
 intensity = intensitySlider.value;
 
@@ -50,25 +50,32 @@ function pauseLights() {
 
 function blinkLights() {
   if (playPauseButton.className.includes("play")) {
-    lights = Array.from(document.getElementsByClassName("light"));
     playPauseButton.className = playPauseButton.className.replace("play", "pause");
     setIntervalFirstNoDelay(() => {
       lights.forEach((lightElem, index) => {
+
         setTimeout(() => {
           let color =
             lightElem.style.backgroundColor === ""
               ? getComputedStyle(lightElem)["background-color"]
-              : lightElem.style.backgroundColor;
+              : defaultColors[index];
+          console.log(getComputedStyle(lightElem)["background-color"]);
   
-          // turn on light
-          lightElem.setAttribute(
-            "style",
-            `background-color: ${color}; filter:brightness(100%); box-shadow:0 0 50px ${color};`
-          );
+          // turn on lights
+          let lightElems = document.querySelectorAll(`.${lightElem.className.replace(" ", ".")}`);
+          lightElems.forEach((light) => {
+            light.setAttribute(
+              "style",
+              `background-color: ${color}; filter:brightness(100%); box-shadow:0 0 50px ${color};`
+            );
+          })
+
   
           // turn off light
           setTimeout(() => {
-            lightElem.setAttribute("style", `background-color: ${color};`);
+            lightElems.forEach((light) => {
+              light.setAttribute("style", `background-color: ${color};`);
+            })
           }, intensity);
           lights = lights.slice(1).concat(lights[0]);
         }, intensity * index);
@@ -80,7 +87,9 @@ function blinkLights() {
 function resetLights() {
   select.value = 1;
   updateNumColors();
+
   lights.forEach((lightElem, index) => {
+    console.log(defaultColors[index])
     lightElem.setAttribute(
       "style",
       `background-color: ${defaultColors[index]};`
