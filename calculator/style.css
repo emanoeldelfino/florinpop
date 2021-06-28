@@ -34,9 +34,12 @@ div#container {
 }
 
 div#result {
-  height: 60px;
+  display: flex;
+  flex-direction: column;
+  height: 80px;
   width: 315px;
   overflow-x: auto;
+  justify-content: center;
 }
 
 div#result span {
@@ -45,10 +48,11 @@ div#result span {
   text-align: right;
 }
 
+div#result span {
+  white-space: nowrap;
+}
+
 div.button {
-  /* padding: 10px;
-  width: 60px;
-  height: 60px; */
   -webkit-touch-callout: none;
   /* iOS Safari */
   -webkit-user-select: none;
@@ -64,6 +68,7 @@ div.button {
                                   supported by Chrome, Edge, Opera and Firefox */
   transition: background-color .3s;
   width: 63px;
+  align-items: center;
 }
 
 div.button:hover {
@@ -96,9 +101,11 @@ div#clear-all {
 
 div.button, div#result {
   display: flex;
-  align-items: center;
-  justify-content: center;
   border: black 1px solid;
+}
+
+div.button {
+  justify-content: center;
 }
 
 @media (max-width: 315px) {
@@ -121,23 +128,3 @@ div.button, div#result {
     --minus-font: 10vw;
   }
 }
-
-/* @media (max-width: 200px) {
-  :root {
-    --plus-minus-font: 15px;
-    --clear-all-font: 20px;
-    --multiply-font: 25px;
-    --exponentiation-font: 30px;
-    --general-font: 35px;
-    --minus-font: 40px;
-  }
-} */
-
-/* font-size: xx-small;
-font-size: x-small;
-font-size: small;
-font-size: medium;
-font-size: large;
-font-size: x-large;
-font-size: xx-large;
-font-size: xxx-large; */

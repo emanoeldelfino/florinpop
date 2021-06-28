@@ -6,6 +6,9 @@ let result = 0;
 
 buttonsElems.forEach((buttonElem) => {
   buttonElem.addEventListener("click", () => {
+    // move the scroll to the right side
+    resultSpan.parentElement.scrollLeft = resultSpan.parentElement.scrollWidth;
+
     resultSpan.innerHTML =
       resultSpan.innerHTML !== "ERR" ? resultSpan.innerHTML : "";
     let button = buttonElem.textContent;
@@ -36,11 +39,8 @@ buttonsElems.forEach((buttonElem) => {
       resultSpan.innerHTML = "0";
     } else if (button === "=") {
       replace(numsOperations, ["÷", "x", "^"], ["/", "*", "**"]);
-      if (
-        lastChar &&
-        !~"+-÷x^".indexOf(lastChar) &&
-        numsOperations.length > 1
-      ) {
+    
+      if (lastChar && !~"+-÷x^".indexOf(lastChar) && numsOperations.length > 1) {
         ["**", "/", "*", "+", "-"].forEach((operation) => {
           while (~numsOperations.indexOf(operation)) {
             let indexOperation = numsOperations.indexOf(operation);
@@ -48,7 +48,7 @@ buttonsElems.forEach((buttonElem) => {
             let num2Index = indexOperation + 1;
             let num1 = Number(numsOperations[num1Index]);
             let num2 = Number(numsOperations[num2Index]);
-
+    
             if (operation === "**") {
               result = num1 ** num2;
             } else if (operation === "/") {
@@ -74,7 +74,7 @@ buttonsElems.forEach((buttonElem) => {
           resultSpan.innerHTML !== "ERR"
             ? Number(Number(result).toFixed(decimalPlacesQt))
             : "ERR";
-      }
+      }      
     } else if (button === ".") {
       if (
         numsOperations.length === 0 ||
@@ -98,7 +98,6 @@ buttonsElems.forEach((buttonElem) => {
           start = -String(Math.abs(lastValue)).length - 1;
           replaceSign = isPositive(lastValue) ? "-" : "";
         } else if (beforeLastValue !== "+") {
-          console.log(numsOperations);
           start = -String(Math.abs(lastValue)).length;
           replaceSign = "-";
 
