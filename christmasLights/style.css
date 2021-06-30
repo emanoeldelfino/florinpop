@@ -41,34 +41,6 @@ div.light {
   justify-content: center;
 }
 
-div.light1 {
-  background-color: red;
-}
-
-div.light2 {
-  background-color: yellow;
-}
-
-div.light3 {
-  background-color: green;
-}
-
-div.light4 {
-  background-color: purple;
-}
-
-div.light5 {
-  background-color: orange;
-}
-
-div.light6 {
-  background-color: blue;
-}
-
-div.light7 {
-  background-color: cyan;
-}
-
 div.row-lights {
   display: flex;
   justify-content: space-around;
