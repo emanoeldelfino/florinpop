@@ -55,10 +55,11 @@ function blinkLights() {
       lights.forEach((lightElem, index) => {
 
         setTimeout(() => {
+          colorIndex = Number(lightElem.className.slice(-1)) -1;
           let color =
             lightElem.style.backgroundColor === ""
               ? getComputedStyle(lightElem)["background-color"]
-              : defaultColors[index];
+              : defaultColors[colorIndex];
           console.log(getComputedStyle(lightElem)["background-color"]);
   
           // turn on lights

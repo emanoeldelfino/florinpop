@@ -151,6 +151,8 @@ i#play-pause, i#reload {
 
 i#play-pause {
   font-size: 45px;
+  position: relative;
+  left: 15px;
 }
 
 i#reload {
