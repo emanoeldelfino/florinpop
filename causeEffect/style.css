@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta+Malar&display=swap');
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Mukta Malar', sans-serif;
+}
+
+main#container {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  grid-template-columns: 150px 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "summary information" "summary form";
+}
+
+ul#summary {
+  list-style-type: none;
+  grid-area: summary;
+  margin: 50px 0px;
+}
+
+ul#summary li {
+  margin: 30px 0px;
+}
+
+div#information {
+  grid-area: information;
+}
+
+form#form {
+  grid-area: form;
+}
+
+img {
+  width: 40vw;
+  height: auto;
+  border-radius: 50px;
+}
+
+article#information {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px;
+}
+
+article#information div {
+  margin-top: 100px;
+}
+
+main#container ul#summary li {
+  cursor: pointer;
+}
+
+span#name {
+  font-size: 30px;
+}
