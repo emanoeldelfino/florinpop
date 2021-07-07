@@ -15,12 +15,14 @@ main#container {
   width: 100vw;
   height: 100vh;
   grid-template-columns: 150px 1fr;
-  grid-template-rows: 1fr 1fr;
   grid-template-areas: "summary" "information";
 }
 
-ul#summary {
+ul {
   list-style-type: none;
+}
+
+ul#summary {
   grid-area: summary;
   margin: 50px 0px;
 }
@@ -45,12 +47,9 @@ img {
 
 article#information {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  margin: 50px;
-}
-
-article#information div {
-  margin-top: 100px;
+  margin: 40px 0 0 40px;
 }
 
 main#container ul#summary li {
@@ -61,13 +60,32 @@ span#name {
   font-size: 30px;
 }
 
-@media (max-width: 900px) {
-  article#information {
-    flex-direction: column;
-  }
+@media (max-width: 600px), (max-height: 850px) {
   article#information img {
-    width: 200px;
+    width: 35vh;
     height: auto;
     border-radius: 25px;
+  }
+}
+
+@media (max-width: 500px) {
+
+  article#information {
+    margin: 50px 0 0 5px;
+  }
+  article#information div ul, ul#summary {
+    padding-left: 20px;
+  }
+}
+
+@media (max-width: 380px) {
+  main#container {
+    grid-template-columns: 120px 1fr;
+  }
+}
+
+@media (max-width: 360px) {
+  article#information img {
+    width: 25vh;
   }
 }
