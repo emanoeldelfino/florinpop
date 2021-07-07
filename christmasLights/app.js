@@ -15,7 +15,7 @@ function getRandom(num=1, arr) {
 }
 
 function getRandomHexColor() {
-  return getRandom(6, hexChars) 
+  return '#' + String(getRandom(6, hexChars)); 
 }
 
 const rowLights = document.querySelector("div.row-lights");
