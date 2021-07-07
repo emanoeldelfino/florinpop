@@ -15,16 +15,16 @@ function getRandom(num=1, arr) {
 }
 
 function getRandomHexColor() {
-  return '#' + String(getRandom(6, hexChars)); 
+  return '#' + getRandom(6, hexChars).join(''); 
 }
 
 const rowLights = document.querySelector("div.row-lights");
 const defaultColors = [];
 
-for (i = 0; i <= 6; i++) {
+for (let i = 0; i <= 6; i++) {
   defaultColors.push(getRandomHexColor());
-  let lightDiv = document.createElement("div");
-  let color = defaultColors[i];
+  const lightDiv = document.createElement("div");
+  const color = defaultColors[i];
   lightDiv.style.backgroundColor = color;
   lightDiv.className = "light";
   lightDiv.innerHTML = `<input type="color" id="light${
