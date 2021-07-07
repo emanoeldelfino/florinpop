@@ -24,8 +24,8 @@ const people = [
     city: "Albuquerque",
     state: "New Mexico",
     country: "United States",
-    nickname: "Sky",
-    birthday: "August 11, 1970",
+    nickname: "Jess",
+    birthday: "September 24, 1984",
     imageURL: "https://static.wikia.nocookie.net/breakingbad/images/9/95/JesseS5.jpg",
   },
   {
