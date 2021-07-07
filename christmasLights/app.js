@@ -1,15 +1,28 @@
+const hexChars = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
+
+function getRandom(num=1, arr) {
+    if (num === 1) {
+        return arr[Math.floor(Math.random() * arr.length)];
+    } else if (num <= 0) {
+        return null;
+    } else {
+        let elems = [];
+        for (i=0; i < num; i++) {
+            elems.push(arr[Math.floor(Math.random() * arr.length)])
+        }
+        return elems;
+    }
+}
+
+function getRandomHexColor() {
+  return getRandom(6, hexChars) 
+}
+
 const rowLights = document.querySelector("div.row-lights");
-const defaultColors = [
-  "#ff0000",
-  "#aabbcc",
-  "#eeffaa",
-  "#ffff00",
-  "#00ffff",
-  "#ff00ff",
-  "#888888",
-];
+const defaultColors = [];
 
 for (i = 0; i <= 6; i++) {
+  defaultColors.push(getRandomHexColor());
   let lightDiv = document.createElement("div");
   let color = defaultColors[i];
   lightDiv.style.backgroundColor = color;
