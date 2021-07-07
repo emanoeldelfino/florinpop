@@ -36,7 +36,7 @@ form#form {
 }
 
 img {
-  width: 40vw;
+  width: 400px;
   height: auto;
   border-radius: 50px;
 }
@@ -57,4 +57,15 @@ main#container ul#summary li {
 
 span#name {
   font-size: 30px;
+}
+
+@media (max-width: 900px) {
+  article#information {
+    flex-direction: column;
+  }
+  article#information img {
+    width: 200px;
+    height: auto;
+    border-radius: 25px;
+  }
 }
