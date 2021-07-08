@@ -1,0 +1,8 @@
+div#color-components {
+  display: flex;
+  justify-content: center;
+}
+
+input {
+  width: 50px;
+}
