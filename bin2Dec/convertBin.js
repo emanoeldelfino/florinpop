@@ -6,7 +6,7 @@ export default function binToDec(bits) {
       "Invalid input. Binary numbers are composed only by 0s and 1s."
     );
   } else {
-    let negative = bits[0] === "-" ? true : false;
+    let isNegative = bits[0] === "-" ? true : false; 
 
     let total = 0;
     const oneInd = bits.indexOf("1");
@@ -19,6 +19,6 @@ export default function binToDec(bits) {
       total += Number(bit);
     }
 
-    return negative ? -Number(total) : Number(total);
+    return isNegative ? -Number(total) : Number(total);
   }
 }
