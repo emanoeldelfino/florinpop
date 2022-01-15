@@ -5,10 +5,9 @@ const submitButton = document.querySelector("button#submit");
 const outputNumElem = document.querySelector("#result > #converted-number");
 const resultText = document.querySelector("#result-text");
 const tooltip = document.querySelector(".tooltip");
-console.log(tooltip);
 
 function bin2Dec(binary) {
-  if ([..."23456789"].some((num) => binary.includes(num))) {
+  if (binary.replace("0", "").replace("1", "") !== "") {
     throw new Error(
       "Invalid input. Binary numbers are composed only by 0s and 1s."
     );
