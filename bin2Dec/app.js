@@ -2,7 +2,7 @@ const gitHubImg = document.querySelector("#github");
 const inputField = document.querySelector("#binary");
 const inputText = document.querySelector("#input-text");
 const submitButton = document.querySelector("button#submit");
-const resultSpan = document.querySelector("#result > #converted-number");
+const outputNumElem = document.querySelector("#result > #converted-number");
 const resultText = document.querySelector("#result-text");
 const tooltip = document.querySelector(".tooltip");
 console.log(tooltip);
@@ -66,34 +66,23 @@ submitButton.addEventListener("click", () => {
 
   try {
     decimalNum = bin2Dec(binaryNum);
-    resultSpan.innerText = decimalNum;
-    resultSpan.style.color = "green";
+    outputNumElem.innerText = decimalNum;
+    outputNumElem.style.color = "green";
   } catch (err) {
     window.alert(err.message);
-    resultSpan.innerText = "Invalid";
-    resultSpan.style.color = "red";
+    outputNumElem.innerText = "Invalid";
+    outputNumElem.style.color = "red";
   }
 });
 
 resultText.addEventListener("click", () => {
-  copyToClipboard(decimalNum);
+  let text = outputNumElem.value;
+  navigator.clipboard.writeText(text).then(() => {
+    // tooltip
+    tooltip.style.display = "inline-block";
+
+    window.setTimeout(() => {
+      tooltip.style.display = "none";
+    }, 3000);
+  });
 });
-
-const copyToClipboard = (str) => {
-  const el = document.createElement("textarea");
-  el.value = str;
-  el.setAttribute("readonly", "");
-  el.style.position = "absolute";
-  el.style.left = "-9999px";
-  document.body.appendChild(el);
-  el.select();
-  document.execCommand("copy");
-  document.body.removeChild(el);
-
-  // tooltip
-  tooltip.style.display = "inline-block";
-
-  window.setTimeout(() => {
-    tooltip.style.display = "none";
-  }, 3000);
-};
