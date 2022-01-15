@@ -1,13 +1,29 @@
-import bin2Dec from "./convertBin.js";
-
-const gitHubImg = document.querySelector("img#github");
-const inputField = document.querySelector("input#binary");
-const inputText = document.querySelector("span#input-text");
+const gitHubImg = document.querySelector("#github");
+const inputField = document.querySelector("#binary");
+const inputText = document.querySelector("#input-text");
 const submitButton = document.querySelector("button#submit");
-const resultSpan = document.querySelector("div#result > span#converted-number");
-const resultText = document.querySelector("span#result-text");
+const resultSpan = document.querySelector("#result > #converted-number");
+const resultText = document.querySelector("#result-text");
 const tooltip = document.querySelector(".tooltip");
 console.log(tooltip);
+
+function bin2Dec(binary) {
+  if ([..."23456789"].some((num) => binary.includes(num))) {
+    throw new Error(
+      "Invalid input. Binary numbers are composed only by 0s and 1s."
+    );
+  } else {
+    const bits = Math.abs(Number(binary));
+
+    let total = 0;
+    for (let bit of String(bits)) {
+      total *= 2;
+      total += Number(bit);
+    }
+
+    return bits === Number(binary) ? total : -total;
+  }
+}
 
 function evts(elem, properties, pair, change) {
   const elemToChange = change || elem;
@@ -51,11 +67,11 @@ submitButton.addEventListener("click", () => {
   try {
     decimalNum = bin2Dec(binaryNum);
     resultSpan.innerText = decimalNum;
-    resultSpan.style.color = 'green';
-  } catch(err) {
+    resultSpan.style.color = "green";
+  } catch (err) {
     window.alert(err.message);
-    resultSpan.innerText = 'Invalid';
-    resultSpan.style.color = 'red';
+    resultSpan.innerText = "Invalid";
+    resultSpan.style.color = "red";
   }
 });
 
@@ -63,21 +79,21 @@ resultText.addEventListener("click", () => {
   copyToClipboard(decimalNum);
 });
 
-const copyToClipboard = str => {
-  const el = document.createElement('textarea');
+const copyToClipboard = (str) => {
+  const el = document.createElement("textarea");
   el.value = str;
-  el.setAttribute('readonly', '');
-  el.style.position = 'absolute';
-  el.style.left = '-9999px';
+  el.setAttribute("readonly", "");
+  el.style.position = "absolute";
+  el.style.left = "-9999px";
   document.body.appendChild(el);
   el.select();
-  document.execCommand('copy');
+  document.execCommand("copy");
   document.body.removeChild(el);
 
   // tooltip
-  tooltip.style.display = 'inline-block';
+  tooltip.style.display = "inline-block";
 
   window.setTimeout(() => {
-    tooltip.style.display = 'none';
-  }, 3000)
+    tooltip.style.display = "none";
+  }, 3000);
 };

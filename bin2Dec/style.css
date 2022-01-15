@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -23,7 +24,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 50px 10%;
+  padding: 50px 10% 0;
   flex-direction: column;
 }
 
@@ -78,7 +79,7 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-form, div#result {
+form, #result {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -87,71 +88,67 @@ form, div#result {
   margin: 15px;
 }
 
-span#input-text, button#submit, span#result-text {
+#input-text, #submit, #result-text {
   font-size: 25px;
 }
 
-button#submit {
+#submit {
   border: none;
 }
 
-span#converted-number {
-  min-width: 150px;
+#binary {
+  text-align: center;
 }
 
-input#binary, span#converted-number {
+#converted-number {
+  height: 150px;
+  resize: vertical;
+}
+
+#binary, #converted-number {
   font-size: 25px;
   color: green;
+  width: 90vw;
+  min-width: 150px;
+  max-width: 400px;
+  min-height: 50px;
+  max-height: 50vh;
+  border-radius: 15px;
   background-color: white;
-  padding: 5px 10px;
-  border-radius: 50px;
+  padding: 10px;
   margin: 10px;
-  text-align: center;
   outline: none;
-  min-height: 45px;
-  width: 70vw;
 }
 
-body, button#submit {
+body, #submit {
   font-family: Righteous, sans-serif;
   color: white;
   background-color: black;
 }
 
-span#input-text, button#submit {
+#input-text, #submit {
   display: block;
 }
 
-#logo:hover, #input-text:hover, button#submit:hover, span#result-text:hover {
+#logo:hover, #input-text:hover, #submit:hover, #result-text:hover {
   color: green;
 }
 
-span#result-text:hover {
+#result-text:hover {
   cursor: copy;
 }
 
-@media (min-width: 500px) {
-  input#binary, span#converted-number {
-    width: 45vw;
-  }
+.tooltip {
+  position: relative;
+  background: white;
+  border-radius: 20px;
+  padding: 5px 10px;
+  text-align: center;
+  color: green;
+  display: none;
+  min-height: 30px;
 }
 
-@media (min-width: 900px) {
-  input#binary, span#converted-number {
-    width: 35vw;
-  }
-}
-
-@media(min-width: 1440px) {
-  input#binary, span#converted-number {
-    height: 40px;
-    border-radius: 30px;
-    width: 25vw;
-  }
-  span#input-text, input#binary, button#submit, span#result-text, span#converted-number {
-    font-size: 30px;
-  }
-  #logo {
-    font-size: 50px;
-  }
+.tooltip>.tooltip-text {
+  line-height: 30px;
 }

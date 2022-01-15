@@ -1,38 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="tooltip.css">
-  <title>Binary to Decimal</title>
-</head>
-<body>
-  <header>
-    <span id="logo" class="no-select">Binary 010</span>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="https://github.com/emanoeldelfino/app-ideas/tree/main/bin2Dec"><img src="images/GitHub-Mark-Light-32px.png" alt="GitHub" id="github"></a></li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <form action="javascript:void(0);">
-      <label for="binary">
-        <span id="input-text">Binary Number</span>
-        <input maxlength="8" type="number" value="binary" id="binary" /> 
-      </label>
-      <button type="submit" id="submit">Submit</button>
-    </form>
-    <div id="result">
-      <span id="result-text">Decimal Number</span>
-      <span id="converted-number"></span>
-    </div>
-    <div class="tooltip">
-      <span class="tooltip-text">Decimal Number Copied to Clipboard!</span>
-    </div>
-  </main>
-  <script type="module" src="./app.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Binary to Decimal</title>
+  </head>
+  <body>
+    <header>
+      <span id="logo" class="no-select">Binary 010</span>
+      <nav>
+        <ul class="nav-links">
+          <li>
+            <a
+              href="https://github.com/emanoeldelfino/app-ideas/tree/main/bin2Dec"
+              ><img
+                src="images/GitHub-Mark-Light-32px.png"
+                alt="GitHub"
+                id="github"
+            /></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <form action="javascript:void(0);">
+        <label for="binary">
+          <span id="input-text">Binary Number</span>
+          <input maxlength="8" type="number" value="binary" id="binary" />
+        </label>
+        <button type="submit" id="submit">Submit</button>
+      </form>
+      <div id="result">
+        <span id="result-text">Decimal Number</span>
+        <textarea
+          id="converted-number"
+          name=""
+          id=""
+          cols="30"
+          rows="10"
+        ></textarea>
+      </div>
+      <div class="tooltip">
+        <span class="tooltip-text">Decimal Number Copied to Clipboard!</span>
+      </div>
+    </main>
+    <script src="./app.js"></script>
+  </body>
 </html>
