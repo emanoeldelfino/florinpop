@@ -1,4 +1,4 @@
 # florinpop
 💡 Florinpop app-ideas projects 
 
-- [Link](https://github.com/florinpop17/app-ideas) for the project ideas repository.
+- You can find the florinpop17 app-ideas repository [here](https://github.com/florinpop17/app-ideas).
