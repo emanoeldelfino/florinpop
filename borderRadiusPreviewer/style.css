@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@400;700&display=swap');
+
 :root {
   --size-logo: 35px;
   --bg-color: rgb(10, 5, 73);
@@ -135,6 +136,7 @@ span#tooltip-copy {
   :root {
     --size-logo: 25px;
   }
+
   nav {
     flex-direction: column;
   }
@@ -153,8 +155,8 @@ span#tooltip-copy {
   }
 }
 
-@media (max-height: 753px) {
+@media (min-height: 753px) {
   div#container {
-    height: 100%;
+    height: 100vh;
   }
 }
