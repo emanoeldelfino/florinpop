@@ -7,7 +7,7 @@ const resultText = document.querySelector("#result-text");
 const tooltip = document.querySelector(".tooltip");
 
 function bin2Dec(binary) {
-  if (binary.replace("0", "").replace("1", "") !== "") {
+  if (binary.replaceAll("0", "").replaceAll("1", "") !== "") {
     throw new Error(
       "Invalid input. Binary numbers are composed only by 0s and 1s."
     );
