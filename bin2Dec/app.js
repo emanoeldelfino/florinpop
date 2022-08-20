@@ -5,22 +5,23 @@ const submitButton = document.querySelector("button#submit");
 const outputNumElem = document.querySelector("#result > #converted-number");
 const resultText = document.querySelector("#result-text");
 const tooltip = document.querySelector(".tooltip");
+const binaryPattern = /^[01]*$/g;
 
 function bin2Dec(binary) {
-  if (binary.replaceAll("0", "").replaceAll("1", "") !== "") {
+  if (binaryPattern.test(binary)) {
+        const bits = Math.abs(Number(binary));
+
+        let total = 0;
+        for (let bit of String(bits)) {
+          total *= 2;
+          total += Number(bit);
+        }
+
+        return bits === Number(binary) ? total : -total;
+  } else {
     throw new Error(
       "Invalid input. Binary numbers are composed only by 0s and 1s."
     );
-  } else {
-    const bits = Math.abs(Number(binary));
-
-    let total = 0;
-    for (let bit of String(bits)) {
-      total *= 2;
-      total += Number(bit);
-    }
-
-    return bits === Number(binary) ? total : -total;
   }
 }
 
